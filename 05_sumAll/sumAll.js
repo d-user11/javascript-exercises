@@ -1,21 +1,17 @@
-const sumAll = function (firtstNumber, secondNumber) {
+const sumAll = function (startNumber, finishNumber) {
     if (
-        !Number.isInteger(firtstNumber)
-        || !Number.isInteger(secondNumber)
-        || firtstNumber < 0
-        || secondNumber < 0
+        !Number.isInteger(startNumber)
+        || !Number.isInteger(finishNumber)
+        || startNumber < 0
+        || finishNumber < 0
     ) {
         return 'ERROR';
     }
 
-    let startNumber;
-    let finishNumber;
-    if (firtstNumber < secondNumber) {
-        startNumber = firtstNumber;
-        finishNumber = secondNumber;
-    } else {
-        startNumber = secondNumber;
-        finishNumber = firtstNumber;
+    if (startNumber > finishNumber) {
+        startNumber += finishNumber;
+        finishNumber = startNumber - finishNumber;
+        startNumber -= finishNumber; 
     }
 
     let sum = 0;
